@@ -1,18 +1,42 @@
 // pages/index.js
+"use client";
 import ProductList from "@/components/product/ProductsList";
+import Carousel from "@/components/home/Carousel";
+import { useState } from "react";
 
+const carouselItems = [
+  {
+    src: "/carousel/almond.png",
+    alt: "almond",
+    caption: "Premium Quality Grade A Almond Nuts",
+  },
+  {
+    src: "/carousel/dryfruits.png",
+
+    alt: "fryfruits",
+    caption: "Exclusive Dry Fruits Collection",
+  },
+  {
+    src: "/carousel/herbs.png",
+    alt: "herbs",
+    caption: "Best Exporter of Herbs",
+  },
+];
 export default function Home() {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-4xl text-center font-bold mt-6 mb-4 text-gray-800">
-        Welcome to Our Shop!
+        Welcome to Royaldivine Produce Products LLP!
       </h1>
       <p className="text-center text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-        Discover the best products at unbeatable prices! Explore our diverse
-        range of items and find what you love today.
+        Your trusted source for high-quality produce and products. Explore our
+        diverse range of items tailored for your needs!
       </p>
 
-      <section className="bg-green-50 p-8 rounded-lg shadow-lg mb-8">
+      {/* Use the Carousel component */}
+      <Carousel items={carouselItems} />
+
+      <section className="p-8 rounded-lg shadow-lg mb-8">
         <h2 className="text-3xl font-semibold mb-4 text-center text-green-700">
           Featured Products
         </h2>

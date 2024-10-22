@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         <ProductProvider>
           <CartProvider>
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow mt-20">{children}</main>
             <Footer />
           </CartProvider>
         </ProductProvider>
