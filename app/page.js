@@ -1,8 +1,7 @@
-// pages/index.js
 "use client";
 import ProductList from "@/components/product/ProductsList";
 import Carousel from "@/components/home/Carousel";
-import { useState } from "react";
+import { Leaf } from "lucide-react";
 
 const carouselItems = [
   {
@@ -12,7 +11,6 @@ const carouselItems = [
   },
   {
     src: "/carousel/dryfruits.png",
-
     alt: "fryfruits",
     caption: "Exclusive Dry Fruits Collection",
   },
@@ -22,61 +20,128 @@ const carouselItems = [
     caption: "Best Exporter of Herbs",
   },
 ];
+
 export default function Home() {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl text-center font-bold mt-6 mb-4 text-gray-800">
-        Welcome to Royaldivine Produce Products LLP!
-      </h1>
-      <p className="text-center text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-        Your trusted source for high-quality produce and products. Explore our
-        diverse range of items tailored for your needs!
-      </p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section with gradient overlay */}
+      <div className="relative bg-gradient-to-b from-green-50 to-white py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Welcome to{" "}
+              <span className="text-green-700">
+                Royaldivine Produce Products
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Your trusted source for high-quality produce and products. Explore
+              our diverse range of items tailored for your needs!
+            </p>
+          </div>
+        </div>
+      </div>
 
-      {/* Use the Carousel component */}
-      <Carousel items={carouselItems} />
+      {/* Carousel Section */}
+      <div className="my-12">
+        <Carousel items={carouselItems} />
+      </div>
 
-      <section className="p-8 rounded-lg shadow-lg mb-8">
-        <h2 className="text-3xl font-semibold mb-4 text-center text-green-700">
-          Featured Products
-        </h2>
-        <p className="text-center text-gray-600 mb-4">
-          Check out our latest arrivals and best sellers, handpicked just for
-          you!
-        </p>
-        <ProductList />
+      {/* Featured Products Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Leaf className="text-green-600 w-6 h-6" />
+            <h2 className="text-3xl font-bold text-gray-900">
+              Featured Products
+            </h2>
+          </div>
+          <p className="text-center text-gray-600 mb-12 text-lg">
+            Check out our latest arrivals and best sellers, handpicked just for
+            you!
+          </p>
+          <ProductList />
+        </div>
       </section>
 
-      <section className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-8 rounded-lg mb-8 shadow-md">
-        <h2 className="text-3xl font-semibold mb-4 text-center text-gray-800">
-          Why Choose Us?
-        </h2>
-        <ul className="list-disc list-inside text-gray-700 text-lg">
-          <li className="mb-2">
-            ✔ High-quality products that meet your needs.
-          </li>
-          <li className="mb-2">✔ Exceptional customer service and support.</li>
-          <li className="mb-2">✔ Easy and secure checkout process.</li>
-          <li className="mb-2">✔ Fast and reliable shipping.</li>
-        </ul>
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Why Choose Us?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Premium Quality",
+                desc: "High-quality products that meet your needs",
+                icon: "✦",
+              },
+              {
+                title: "Expert Support",
+                desc: "Exceptional customer service and support",
+                icon: "★",
+              },
+              {
+                title: "Secure Checkout",
+                desc: "Easy and secure checkout process",
+                icon: "⚡",
+              },
+              {
+                title: "Fast Shipping",
+                desc: "Fast and reliable shipping worldwide",
+                icon: "♢",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="text-center p-6 rounded-lg bg-green-50 hover:bg-green-100 transition-colors duration-300"
+              >
+                <div className="text-3xl text-green-600 mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="bg-white p-8 rounded-lg mb-8 shadow-md">
-        <h2 className="text-3xl font-semibold mb-4 text-center text-gray-800">
-          Customer Testimonials
-        </h2>
-        <div className="flex flex-col space-y-4">
-          <blockquote className="border-l-4 border-green-500 pl-4 italic text-gray-700">
-            &quot;Absolutely loved the quality of the products! Will definitely
-            shop again.&quot; - Jane D.
-          </blockquote>
-          <blockquote className="border-l-4 border-green-500 pl-4 italic text-gray-700">
-            &quot;Great customer service and fast delivery!&quot; - John S.
-          </blockquote>
-          <blockquote className="border-l-4 border-green-500 pl-4 italic text-gray-700">
-            &quot;A fantastic shopping experience! Highly recommend.&quot; -
-            Emily R.
-          </blockquote>
+      {/* Testimonials Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            What Our Customers Say
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote:
+                  "Absolutely loved the quality of the products! Will definitely shop again.",
+                author: "Jane D.",
+              },
+              {
+                quote: "Great customer service and fast delivery!",
+                author: "John S.",
+              },
+              {
+                quote: "A fantastic shopping experience! Highly recommend.",
+                author: "Emily R.",
+              },
+            ].map((testimonial, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="text-green-600 text-4xl mb-4">&quot;</div>
+                <p className="text-gray-700 mb-4 italic">{testimonial.quote}</p>
+                <p className="text-gray-900 font-semibold">
+                  — {testimonial.author}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

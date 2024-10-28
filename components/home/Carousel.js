@@ -1,5 +1,5 @@
 // components/Carousel.js
-'use client'
+"use client";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -19,32 +19,38 @@ const Carousel = ({ items }) => {
   };
 
   return (
-    <div className="relative mb-8">
-      <div className="overflow-hidden rounded-full shadow-lg">
+    <div className="relative mb-8 max-w-5xl mx-auto rounded-full overflow-hidden shadow-2xl">
+      <div className="relative overflow-hidden">
         <Image
           src={items[currentIndex].src}
           alt={items[currentIndex].alt}
           width={1920}
           height={600}
-          className="w-full h-auto"
+          className="w-full h-auto object-cover transition-transform duration-500 ease-in-out transform scale-100 hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
       </div>
-      <p className="text-center text-lg font-semibold text-gray-700 mt-2">
-        {items[currentIndex].caption}
-      </p>
+
+      <div className="absolute inset-0 flex items-center justify-center text-center p-6">
+        <h3 className="text-white text-3xl md:text-4xl font-extrabold drop-shadow-lg">
+          {items[currentIndex].caption}
+        </h3>
+      </div>
+
       <button
         onClick={handlePrev}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200 transition-colors duration-300"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gradient-to-r from-black to-transparent p-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
         aria-label="Previous image"
       >
-        &lt;
+        <span className="text-white text-xl font-semibold">&lt;</span>
       </button>
+
       <button
         onClick={handleNext}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200 transition-colors duration-300"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gradient-to-l from-black to-transparent p-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
         aria-label="Next image"
       >
-        &gt;
+        <span className="text-white text-xl font-semibold">&gt;</span>
       </button>
     </div>
   );
